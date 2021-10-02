@@ -8,6 +8,7 @@ spl_autoload_register(function ($class){
 });
 
 require __DIR__ . "/../routes.php";
+require __DIR__ . "/../helpers.php";
 
 $router = new App\Router($_SERVER['REQUEST_URI'], $_SERVER['REQUEST_METHOD']);
 $match = $router->match();
@@ -20,7 +21,7 @@ if($match != null && is_callable($match['action'])){
     $controller = new $class();
     $controller->$method();
 } else {
-    echo "404";
+    return false;
 }
 // switch($_SERVER['REQUEST_URI']){
 //     case '/':

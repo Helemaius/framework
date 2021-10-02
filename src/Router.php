@@ -7,7 +7,7 @@ class Router {
     public static $routes = [];
 
     public function __construct($uri, $method){
-        $this->uri = $uri;
+        $this->uri = parse_url($uri, PHP_URL_PATH);
         $this->method = $method;
     }
 
