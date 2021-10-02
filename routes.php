@@ -1,10 +1,10 @@
 <?php
+
 use App\Router;
+use App\Controller\HomeController;
+use App\Controller\PostController;
 
-Router::get('/', function(){
-    echo "Home page";
-});
 
-Router::get('/about', function(){
-    echo "About us";
-});
+Router::get('/', [HomeController::class, 'index']);
+Router::get('/about', [HomeController::class, 'about']);
+Router::get('/posts', [PostController::class, 'posts']);
